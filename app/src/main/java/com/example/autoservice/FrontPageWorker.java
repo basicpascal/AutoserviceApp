@@ -3,28 +3,15 @@ package com.example.autoservice;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 
 public class FrontPageWorker extends AppCompatActivity {
-
-    FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
     ArrayList<String> arr = new ArrayList<>();
 
@@ -40,10 +27,6 @@ public class FrontPageWorker extends AppCompatActivity {
                 String username = (String) snapshot.getValue(String.class);
                 Toast.makeText(FrontPageWorker.this,"Добро пожаловать, " + username + "!",Toast.LENGTH_LONG).show();
                 setTitle(username);
-
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
@@ -73,25 +56,6 @@ public class FrontPageWorker extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
 
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
         });
     }
 }

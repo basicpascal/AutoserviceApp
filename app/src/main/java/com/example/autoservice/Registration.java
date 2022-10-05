@@ -10,13 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 public class Registration extends AppCompatActivity {
 
     @Override
@@ -28,9 +21,6 @@ public class Registration extends AppCompatActivity {
         EditText email = findViewById(R.id.TextEmail);
         EditText password = findViewById(R.id.TextPassword);
         Button register_btn = findViewById(R.id.RegisterButton);
-
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
         register_btn.setOnClickListener(new View.OnClickListener() {
             @Override
